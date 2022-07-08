@@ -5,4 +5,4 @@ RUN dnf -y upgrade \
  && dnf -y install httpd
 COPY my-info.html /var/www/html/myinfo.html
 EXPOSE 80
-ENTRYPOINT systemctl start httpd.service
+ENTRYPOINT /usr/sbin/httpd -DFOREGROUND
