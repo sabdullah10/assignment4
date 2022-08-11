@@ -1,0 +1,4 @@
+FROM fedora as base
+RUN dnf -y upgrade \
+ && dnf -y install httpd \
+
