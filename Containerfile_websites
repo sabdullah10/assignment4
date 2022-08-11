@@ -1,4 +1,15 @@
-FROM fedora as base
+FROM fedora:latest as base
 RUN dnf -y upgrade \
  && dnf -y install httpd \
+EXPOSE 80
+ENTRYPOINT /usr/sbin/httpd
 
+
+
+FROM base
+COPY website1.html /var/www/html/website1.html
+LABEL website=1
+
+FROM base
+COPY website2.html /var/www/html/website2.html
+LABEL website=2
